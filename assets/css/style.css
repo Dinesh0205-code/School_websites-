@@ -1,5 +1,5 @@
 :root {
-  --theme-color: #dd70a1;
+  --theme-color: #007bff;
   --text-color: #666666;
   --title-color: #333333;
 }
@@ -11904,7 +11904,7 @@ nav {
   box-shadow: rgba(0, 0, 0, 0.603) 5px 10px 17px 5px;
 }
 .content{
-  background: linear-gradient(90deg, #b41b8e, #f2a3b5);
+  background: linear-gradient(90deg, #87CEEB, #B0E0E6);
 }
 .wrapper{
   padding-top: 40px;
