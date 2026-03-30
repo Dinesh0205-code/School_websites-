@@ -139,14 +139,14 @@
 										<span class="fa fa-graduation-cap" aria-hidden="true"></span>
 									</div>
 									<div class="feature-info">
-										<a href="https://lrischool.edu.np/" target="_blank">
+										<a href="grades.html" >
 											<h3 class="feature-titel">Supported Grades</h3>
 										</a>
 										<p class="feature-text">
 											Grade 1 to Grade 10<br>
 											Grades above 10<Br><br>
 										</p>
-										<a href="https://lrischool.edu.np/" class="feature-link" target="_blank"><button
+										<a href="grades.html" class="feature-link" ><button
 												class="bt"> Read more </button></a>
 									</div>
 								</div>
@@ -157,14 +157,14 @@
 										<span class="fa fa-code" aria-hidden="true"></span>
 									</div>
 									<div class="feature-info">
-										<a href="https://lrischool.edu.np/" target="_blank">
+										<a href="training.html" >
 											<h3 class="feature-titel">Technical Training</h3>
 										</a>
 										<p class="feature-text">
 											We provide support for varieties of technical trainings until BSIT level
 											alon with support for other areas and feilds.
 										</p>
-										<a href="https://lrischool.edu.np/" class="feature-link" target="_blank"><button
+										<a href="training.html" class="feature-link" ><button
 												class="bt techbt"> Read more </button></a>
 									</div>
 								</div>
@@ -175,7 +175,7 @@
 										<span class="fa fa-book" aria-hidden="true"></span>
 									</div>
 									<div class="feature-info">
-										<a href="https://lrischool.edu.np/" target="_blank">
+										<a href="library.html" >
 											<h3 class="feature-titel">Books and Library</h3>
 										</a>
 										<p class="feature-text">
@@ -183,8 +183,8 @@
 											wide variety of books made to entertain and educate the students.
 										</p>
 										<div class="hover">
-											<a href="https://lrischool.edu.np/" class="feature-link"
-												target="_blank"><button class="bt"> Read more </button></a>
+											<a href="library.html" class="feature-link"
+												><button class="bt"> Read more </button></a>
 										</div>
 									</div>
 								</div>
@@ -202,18 +202,57 @@
 								<p class="form-para">
 									If you would like to contact us, use the form below:
 								</p>
-								<form action="https://demo.w3layouts.com/" method="Get">
+								<form id="contactForm">
 									<div class="">
-										<input type="text" name="name" class="form-input" placeholder="Your Name" />
+										<input type="text" name="name" id="contactName" class="form-input" placeholder="Your Name" required />
 									</div>
 									<div class="">
-										<input type="email" name="email" class="form-input" placeholder="Email" />
+										<input type="email" name="email" id="contactEmail" class="form-input" placeholder="Email" required />
 									</div>
 									<div class="">
-										<input type="tel" name="phone" class="form-input" placeholder="Phone" />
+										<input type="tel" name="phone" id="contactPhone" class="form-input" placeholder="Phone" required />
 									</div>
-									<button class="bt" role="button">Submit</button>
+									<button class="bt" type="submit" role="button">Submit</button>
 								</form>
+								<div id="formResponse" style="margin-top: 15px; font-weight: bold; text-align: center;"></div>
+								<script>
+									document.getElementById('contactForm').addEventListener('submit', async function(e) {
+										e.preventDefault();
+										
+										const name = document.getElementById('contactName').value;
+										const email = document.getElementById('contactEmail').value;
+										const phone = document.getElementById('contactPhone').value;
+										const responseDiv = document.getElementById('formResponse');
+
+										responseDiv.style.color = '#fff';
+										responseDiv.innerText = 'Sending...';
+
+										try {
+											const response = await fetch('/api/contact', {
+												method: 'POST',
+												headers: {
+													'Content-Type': 'application/json',
+												},
+												body: JSON.stringify({ name, email, phone })
+											});
+
+											const result = await response.json();
+
+											if (result.success) {
+												responseDiv.style.color = '#4CAF50';
+												responseDiv.innerText = 'Thank you! Your message has been sent successfully.';
+												document.getElementById('contactForm').reset();
+											} else {
+												responseDiv.style.color = '#f44336';
+												responseDiv.innerText = result.message || 'Something went wrong. Please try again.';
+											}
+										} catch (err) {
+											console.error(err);
+											responseDiv.style.color = '#f44336';
+											responseDiv.innerText = 'Network error. Please try again.';
+										}
+									});
+								</script>
 							</div>
 						</div>
 					</div>
@@ -228,67 +267,67 @@
 						</div>
 						<div class="services1-content">
 							<div class="column">
-								<a href="https://lrischool.edu.np/" target="_blank">
+								<a href="accounting.html" >
 									<img src="images/acc.png" alt="" class="cimg" />
 									<div class="service-info">
 										<h4 class="course">Accounting</h4>
 										<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim, mollitia!</p>
-										<a href="https://lrischool.edu.np/" class="feature-link" target="_blank"><button
+										<a href="accounting.html" class="feature-link" ><button
 												class="bt"> Read more </button></a>
 									</div>
 								</a>
 							</div>
 							<div class="column">
-								<a href="https://lrischool.edu.np/" target="_blank">
+								<a href="mathematics.html" >
 									<img src="images/math.png" alt="" class="cimg" />
 									<div class="service-info">
 										<h4 class="course">Mathematics</h4>
 										<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim, mollitia!</p>
-										<a href="https://lrischool.edu.np/" class="feature-link" target="_blank"><button
+										<a href="mathematics.html" class="feature-link" ><button
 												class="bt"> Read more </button></a>
 									</div>
 								</a>
 							</div>
 							<div class="column">
-								<a href="https://lrischool.edu.np/" target="_blank">
+								<a href="science.html" >
 									<img src="images/Sci.png" alt="" class="cimg sciimg" />
 									<div class="service-info">
 										<h4 class="course">Science</h4>
 										<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim, mollitia!</p>
-										<a href="https://lrischool.edu.np/" class="feature-link" target="_blank"><button
+										<a href="science.html" class="feature-link" ><button
 												class="bt"> Read more </button></a>
 									</div>
 								</a>
 							</div>
 							<div class="column">
-								<a href="https://lrischool.edu.np/" target="_blank">
+								<a href="english.html" >
 									<img src="images/eng.png" alt="" class="cimg" />
 									<div class="service-info">
 										<h4 class="course">English</h4>
 										<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim, mollitia!</p>
-										<a href="https://lrischool.edu.np/" class="feature-link" target="_blank"><button
+										<a href="english.html" class="feature-link" ><button
 												class="bt"> Read more </button></a>
 									</div>
 								</a>
 							</div>
 							<div class="column">
-								<a href="https://lrischool.edu.np/" target="_blank">
+								<a href="computer.html" >
 									<img src="images/Comp.gif" alt="" class="cimg" />
 									<div class="service-info">
 										<h4 class="course">Computer</h4>
 										<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim, mollitia!</p>
-										<a href="https://lrischool.edu.np/" class="feature-link" target="_blank"><button
+										<a href="computer.html" class="feature-link" ><button
 												class="bt"> Read more </button></a>
 									</div>
 								</a>
 							</div>
 							<div class="column">
-								<a href="https://lrischool.edu.np/" target="_blank">
+								<a href="social.html" >
 									<img src="images/soc.jpg" alt="" class="cimg" />
 									<div class="service-info">
 										<h4 class="course">Social</h4>
 										<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim, mollitia!</p>
-										<a href="https://lrischool.edu.np/" class="feature-link" target="_blank"><button
+										<a href="social.html" class="feature-link" ><button
 												class="bt"> Read more </button></a>
 									</div>
 								</a>
@@ -388,11 +427,11 @@
 							</ul>
 							<div class="footer14-app d-flex">
 								<span>Webapp:</span>
-								<a href="https://www.ingrails.com/school/login" target="_blank"><span
+								<a href="#" ><span
 										class="fa fa-windows"></span></a>
-								<a href="https://play.google.com/store/apps/details?id=com.ingrails.lri&gl=US"
-									target="_blank"><span class="fa fa-android"></span></a>
-								<a href="https://apps.apple.com/us/app/veda-students-app/id1183813244" target="_blank">
+								<a href="#"
+									><span class="fa fa-android"></span></a>
+								<a href="#" >
 									<span class="fa fa-apple"></span>
 								</a>
 							</div>
